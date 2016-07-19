@@ -21,11 +21,11 @@ class Display
       print "#{r_idx} |"
       row.each_with_index do | piece, c_idx |
         if [r_idx, c_idx] == @cursor
-          print piece.display.colorize(:background => :cyan)
-        elsif (c_idx + r_idx).even?
-          print piece.display.colorize(:background => :white)
+          print piece.symbol.colorize(:background => :cyan)
+        elsif (c_idx + r_idx).odd?
+          print piece.symbol.colorize(:background => :white)
         else
-          print piece.display.colorize(:background => :light_white)
+          print piece.symbol.colorize(:background => :light_white)
         end
         print "|"
       end

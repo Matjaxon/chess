@@ -8,8 +8,8 @@ class NullPiece < NullObject
     puts "I am a singleton"
   end
 
-  def display
-    " N "
+  def symbol
+    "   "
   end
 
   def color

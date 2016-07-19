@@ -1,10 +1,8 @@
-require 'byebug'
-
-class King < Piece
+class Knight < Piece
 
   MOVE_OPTIONS = [
-    [1,0], [-1, 0], [0, 1], [0, -1],
-    [1, -1], [1, 1], [-1, -1], [-1, 1]
+    [2,1], [2, -1], [-2, 1], [-2, -1],
+    [1, 2], [-1, 2], [1, -2], [-1, -2]
   ]
 
   def initialize(pos, color, board)
@@ -12,10 +10,11 @@ class King < Piece
   end
 
   def symbol
-    color == :black ? " \u265A " : " \u2654 "
+    color == :black ? " \u265E " : " \u2658 "
   end
 
   def get_moves
     get_potential_moves(MOVE_OPTIONS)
   end
+
 end
