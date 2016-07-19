@@ -16,7 +16,7 @@ class Pawn < Piece
     one_forward = (pos.first + (1 * multiplier))
     two_forward = (pos.first + (2 * multiplier))
 
-    if @board.in_bound?([one_forward, pos.last]) &&
+    if @board.in_bounds?([one_forward, pos.last]) &&
       @board[one_forward, pos.last].color == :null &&
       all_moves << [one_forward, pos.last]
     end
@@ -29,7 +29,7 @@ class Pawn < Piece
 
     [-1, 1].each do | col_chg |
       new_col = pos.last + col_chg
-      if @board.in_bound?([one_forward, new_col]) &&
+      if @board.in_bounds?([one_forward, new_col]) &&
         @board[one_forward, new_col] == opponent_color
         all_moves << [one_forward, new_col]
       end

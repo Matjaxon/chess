@@ -17,3 +17,6 @@ class NullPiece < NullObject
   end
 
 end
+
+null = NullPiece.instance
+p null.color
