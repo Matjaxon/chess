@@ -84,9 +84,15 @@ class Board
   def dup()
   end
 
-  # def move_piece(from_pos, to_pos) # later color arg?
-  #     piece_at_from_pos = self[from_pos]
-  # end
+  def move_piece(from_pos, to_pos) # later color arg?
+    piece_at_from_pos = self[*from_pos]
+    piece_at_from_pos.move(to_pos)
+    self[*to_pos] = piece_at_from_pos
+    self[*from_pos] = NullPiece
+    if piece_at_from_pos.class == Pawn
+      piece_at_from_pos.set_moved
+    end
+  end
 
 
   def checkmate?
@@ -101,5 +107,12 @@ class Board
 
 end
 
-
-# p b = Board.new
+# b = Board.new
+# rook = b[0, 0]
+# b.move_piece([0,0], [3,3])
+# p b.rows
+# p rook.pos
+# p rook.get_slide_moves(:right, rook.pos)
+# p rook.get_slide_moves(:left, rook.pos)
+# p rook.get_slide_moves(:up, rook.pos)
+# p rook.get_slide_moves(:down, rook.pos)

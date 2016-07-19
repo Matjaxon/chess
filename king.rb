@@ -1,6 +1,7 @@
-require 'byebug'
+require_relative "stepable"
 
 class King < Piece
+  include Stepable
 
   MOVE_OPTIONS = [
     [1,0], [-1, 0], [0, 1], [0, -1],

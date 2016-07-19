@@ -1,4 +1,7 @@
+require_relative "stepable"
+
 class Knight < Piece
+  include Stepable
 
   MOVE_OPTIONS = [
     [2,1], [2, -1], [-2, 1], [-2, -1],

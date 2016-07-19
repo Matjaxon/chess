@@ -49,5 +49,5 @@ class Display
 
 end
 
-display = Display.new(Board.new)
-display.get_square
+# display = Display.new(Board.new)
+# display.get_square
