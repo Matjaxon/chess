@@ -96,7 +96,6 @@ class Board
   def check?(color)
     opponent_color = color == :white ? :black : :white
     king_pos = find_king(color)
-    p king_pos
     @rows.each do | row |
       row.each do | piece |
         if piece.color == opponent_color

@@ -17,7 +17,7 @@ class Player
       selected_square = display.get_square(display_msg)
       selected_piece = display.board[*selected_square]
       unless selected_piece.color == @color
-        raise ArgumentError.new "Wrong color piece selected."
+        raise ColorError
       end
 
       #TODO send feedback to board to light up seleted square
@@ -28,10 +28,15 @@ class Player
       display.reset_cursor(selected_square)
       select_dest_sq = display.get_square(display_msg)
       unless available_moves.include?(select_dest_sq)
-        raise ArgumentError.new "Not a valid move"
+        raise InvalidMoveError
       end
-    rescue
-      puts "That square is not a valid move, please select again."
+    rescue InvalidMoveError => e
+      puts e.msg
+      sleep 1
+      retry
+    rescue ColorError => e
+      puts e.msg
+      sleep 1
       retry
     end
     return selected_square, select_dest_sq

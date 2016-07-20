@@ -22,15 +22,15 @@ class Pawn < Piece
     end
 
     if @moved == false &&
-      @board[one_forward, pos.last] == :null &&
-      @board[two_forward, pos.last] == :null
+      @board[one_forward, pos.last].color == :null &&
+      @board[two_forward, pos.last].color == :null
       all_moves << [two_forward, pos.last]
     end
 
     [-1, 1].each do | col_chg |
       new_col = pos.last + col_chg
       if @board.in_bounds?([one_forward, new_col]) &&
-        @board[one_forward, new_col] == opponent_color
+        @board[one_forward, new_col].color == opponent_color
         all_moves << [one_forward, new_col]
       end
     end
