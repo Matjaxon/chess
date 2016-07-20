@@ -35,19 +35,21 @@ class Display
     nil
   end
 
-  def get_square
+  def get_square(message)
+    @selected = false
     until selected
       system("clear")
       display_board
+      puts message
       input_result = get_input
       if input_result == "Selected"
         @selected = true
+        return @cursor
       end
     end
   end
 
-
+  def reset_cursor(pos)
+    @cursor = pos
+  end
 end
-
-# display = Display.new(Board.new)
-# display.get_square

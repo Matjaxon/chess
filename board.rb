@@ -79,10 +79,8 @@ class Board
 
   def []=(*pos, value)
     x, y = pos
+    # byebug
     @rows[x][y] = value
-  end
-
-  def dup()
   end
 
   def move_piece(from_pos, to_pos) # later color arg?
@@ -90,9 +88,9 @@ class Board
     piece_at_from_pos.move(to_pos)
     self[*to_pos] = piece_at_from_pos
     self[*from_pos] = NullPiece.instance
-    # if piece_at_from_pos.class == Pawn
-    #   piece_at_from_pos.set_moved
-    # end
+    if piece_at_from_pos.class == Pawn
+      piece_at_from_pos.set_moved
+    end
   end
 
   def check?(color)
@@ -153,7 +151,7 @@ class Board
   end
 
 end
-# 
+#
 # b = Board.new
 # p b.find_king(:white)
 # rook = b[0, 0]
