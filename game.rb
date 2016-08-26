@@ -67,9 +67,8 @@ class Game
 
 end
 
-matt = Player.new("Matt")
-emily = Player.new("Emily")
+player1 = Player.new("Player 1")
+player2 = Player.new("Player 2")
 
-game = Game.new(matt, emily)
-# game.play_turn
+game = Game.new(player1, player2)
 game.run

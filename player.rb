@@ -13,7 +13,7 @@ class Player
 
   def get_move(display)
     begin
-      display_msg = "#{@name} pick your piece."
+      display_msg = "#{@name} (#{@color.capitalize}) pick your piece."
       selected_square = display.get_square(display_msg)
       selected_piece = display.board[*selected_square]
       unless selected_piece.color == @color
